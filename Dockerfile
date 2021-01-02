@@ -11,3 +11,6 @@ RUN apk add --no-cache autoconf gcc g++ make \
     && apk del autoconf gcc g++ make
 
 RUN curl -sS https://getcomposer.org/installer | php -- --install-dir=/usr/local/bin --filename=composer
+
+USER www-data
+WORKDIR /var/www/html
