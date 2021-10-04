@@ -1,7 +1,7 @@
 FROM php:7.4-fpm-alpine
 
 RUN apk add --no-cache libpng libpng-dev libjpeg-turbo-dev libwebp-dev zlib-dev libxpm-dev libzip-dev oniguruma-dev libxml2-dev \
-        && docker-php-ext-install zip bcmath pdo_mysql mysqli mbstring opcache soap \
+        && docker-php-ext-install zip bcmath pdo_mysql pdo_pgsql mysqli mbstring opcache soap sockets \
         && docker-php-ext-configure gd \
         && docker-php-ext-install gd
 
