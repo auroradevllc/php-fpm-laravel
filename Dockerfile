@@ -6,7 +6,7 @@ RUN apk add --no-cache libpng libpng-dev libjpeg-turbo-dev libwebp-dev zlib-dev 
         && docker-php-ext-install gd
 
 RUN apk add --no-cache autoconf gcc g++ make \
-    && pecl install redis-5.1.1 \
+    && pecl install redis-5.3.4 \
     && docker-php-ext-enable redis \
     && apk del autoconf gcc g++ make
 
