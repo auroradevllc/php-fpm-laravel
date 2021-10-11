@@ -13,4 +13,4 @@ steps:
       repo: registry.meow.tf/tyler/php-fpm-laravel
       registry: registry.meow.tf
       tags:
-        - latest
+        - php8
