@@ -1,5 +1,7 @@
 FROM php:8.0-fpm-alpine
 
+ENV CFLAGS="$CFLAGS -D_GNU_SOURCE"
+
 RUN apk add --no-cache libpng libpng-dev libjpeg-turbo-dev libwebp-dev zlib-dev libxpm-dev libzip-dev oniguruma-dev libxml2-dev postgresql-dev \
         && docker-php-ext-install zip bcmath pdo_mysql pdo_pgsql mysqli mbstring opcache soap sockets \
         && docker-php-ext-configure gd \
