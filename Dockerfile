@@ -2,10 +2,11 @@ FROM php:8.1-fpm-alpine
 
 ENV CFLAGS="$CFLAGS -D_GNU_SOURCE"
 
-RUN apk add --no-cache libpng libpng-dev libjpeg-turbo-dev libwebp-dev zlib-dev libxpm-dev libzip-dev oniguruma-dev libxml2-dev postgresql-dev \
+RUN apk add --no-cache libpng libpng-dev libjpeg-turbo-dev libwebp-dev zlib-dev libxpm-dev libzip-dev oniguruma-dev libxml2-dev  postgresql-dev \
         && docker-php-ext-install zip bcmath pdo_mysql pdo_pgsql mysqli mbstring opcache soap sockets \
         && docker-php-ext-configure gd \
-        && docker-php-ext-install gd
+		&& docker-php-ext-configure pcntl --enable-pcntl \
+        && docker-php-ext-install gd pcntl
 
 RUN apk add --no-cache autoconf gcc g++ make \
     && pecl install redis-5.3.4 \
