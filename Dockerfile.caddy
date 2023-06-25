@@ -1,0 +1,13 @@
+ARG PHP_VERSION=8.1
+
+FROM registry.meow.tf/tyler/php-fpm-laravel:${PHP_VERSION}
+
+USER root
+
+RUN curl --silent --show-error --fail --location -o /usr/bin/caddy \
+      --header "Accept: application/tar+gzip, application/x-gzip, application/octet-stream" -o - \
+      "https://caddyserver.com/api/download?os=linux&arch=amd64&p=github.com%2Fbaldinof%2Fcaddy-supervisor&idempotency=65771536042846" \
+    && chmod 0755 /usr/bin/caddy \
+    && /usr/bin/caddy version
+
+USER www-data
