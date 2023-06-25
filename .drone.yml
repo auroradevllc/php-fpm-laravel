@@ -3,7 +3,7 @@ type: docker
 name: default
 
 steps:
-  - name: docker
+  - name: php8.1
     image: plugins/docker
     settings:
       username:
@@ -13,4 +13,18 @@ steps:
       repo: registry.meow.tf/tyler/php-fpm-laravel
       registry: registry.meow.tf
       tags:
+        - php8.1
+  - name: php8.2
+    image: plugins/docker
+    settings:
+      build_args:
+        PHP_VERSION: 8.2
+      username:
+        from_secret: docker_username
+      password:
+        from_secret: docker_password
+      repo: registry.meow.tf/tyler/php-fpm-laravel
+      registry: registry.meow.tf
+      tags:
         - php8
+        - php8.2
