@@ -14,6 +14,8 @@ steps:
       registry: registry.meow.tf
       tags:
         - php8.1
+    depends_on:
+      - clone
   - name: php8.2
     image: plugins/docker
     settings:
@@ -28,3 +30,5 @@ steps:
       tags:
         - php8
         - php8.2
+    depends_on:
+      - clone
