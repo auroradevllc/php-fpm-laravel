@@ -77,7 +77,7 @@ steps:
         - php8.2-caddy
     depends_on:
       - php8.2
-  - name: php8.2-caddy
+  - name: php8.3-caddy
     image: plugins/docker
     settings:
       build_args:
