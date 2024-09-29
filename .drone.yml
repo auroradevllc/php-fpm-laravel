@@ -28,8 +28,23 @@ steps:
       repo: registry.meow.tf/tyler/php-fpm-laravel
       registry: registry.meow.tf
       tags:
-        - php8
         - php8.2
+    depends_on:
+      - clone
+  - name: php8.3
+    image: plugins/docker
+    settings:
+      build_args:
+        PHP_VERSION: 8.3
+      username:
+        from_secret: docker_username
+      password:
+        from_secret: docker_password
+      repo: registry.meow.tf/tyler/php-fpm-laravel
+      registry: registry.meow.tf
+      tags:
+        - php8
+        - php8.3
     depends_on:
       - clone
   - name: php8.1-caddy
@@ -59,7 +74,23 @@ steps:
       repo: registry.meow.tf/tyler/php-fpm-laravel
       registry: registry.meow.tf
       tags:
-        - php8-caddy
         - php8.2-caddy
     depends_on:
       - php8.2
+  - name: php8.2-caddy
+    image: plugins/docker
+    settings:
+      build_args:
+        PHP_VERSION: 8.2
+      username:
+        from_secret: docker_username
+      password:
+        from_secret: docker_password
+      dockerfile: Dockerfile.caddy
+      repo: registry.meow.tf/tyler/php-fpm-laravel
+      registry: registry.meow.tf
+      tags:
+        - php8-caddy
+        - php8.3-caddy
+    depends_on:
+      - php8.3
