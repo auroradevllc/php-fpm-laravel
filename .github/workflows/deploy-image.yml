@@ -46,7 +46,7 @@ jobs:
             PHP_VERSION=${{ matrix.php_version }}
             PHP_REDIS_VERSION=${{ matrix.php_redis_version }}
           push: true
-        tags: ghcr.io/auroradevllc/php-fpm-laravel:${{ matrix.tags }}
+          tags: ghcr.io/auroradevllc/php-fpm-laravel:${{ matrix.tags }}
 
   build-caddy:
     permissions:
