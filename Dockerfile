@@ -11,7 +11,7 @@ RUN apk add --no-cache libpng libpng-dev libjpeg-turbo-dev libwebp-dev zlib-dev 
 		&& docker-php-ext-configure pcntl --enable-pcntl \
         && docker-php-ext-install gd pcntl
 
-ENV PHP_REDIS_VERSION="${PHP_REDIS_VERSION}"
+ENV PHP_REDIS_VERSION=${PHP_REDIS_VERSION}
 RUN apk add --no-cache autoconf gcc g++ make linux-headers \
     && pecl install redis-${PHP_REDIS_VERSION} \
     && docker-php-ext-enable redis \
