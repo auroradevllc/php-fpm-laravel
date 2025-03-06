@@ -7,6 +7,8 @@ on:
 
 jobs:
   build:
+    permissions:
+      packages: write
     runs-on: ubuntu-latest
     strategy:
       matrix:
@@ -40,6 +42,8 @@ jobs:
           tags: ${{ join(',', format('ghcr.io/auroradevllc/php-fpm-laravel:{0}', matrix.tags)) }}
 
   build-caddy:
+    permissions:
+      packages: write
     runs-on: ubuntu-latest
     strategy:
       matrix:
