@@ -13,7 +13,7 @@ RUN apk add --no-cache libpng libpng-dev libjpeg-turbo-dev libwebp-dev zlib-dev 
 
 ENV PHP_REDIS_VERSION=${PHP_REDIS_VERSION}
 RUN apk add --no-cache autoconf gcc g++ make linux-headers \
-    && pecl install redis-$PHP_REDIS_VERSION \
+    && pecl install "redis-$PHP_REDIS_VERSION" \
     && docker-php-ext-enable redis \
     && apk del autoconf gcc g++ make
 
