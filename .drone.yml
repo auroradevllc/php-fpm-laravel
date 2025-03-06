@@ -10,7 +10,7 @@ steps:
         from_secret: docker_username
       password:
         from_secret: docker_password
-      repo: ord.vultrcr.com/auroradev/php-fpm-laravel
+      repo: ord.vultrcr.com/auroradev/tyler/php-fpm-laravel
       registry: ord.vultrcr.com
       tags:
         - php8.1
@@ -25,8 +25,8 @@ steps:
         from_secret: docker_username
       password:
         from_secret: docker_password
-      repo: registry.meow.tf/tyler/php-fpm-laravel
-      registry: registry.meow.tf
+      repo: ord.vultrcr.com/auroradev/tyler/php-fpm-laravel
+      registry: ord.vultrcr.com
       tags:
         - php8.2
     depends_on:
@@ -40,7 +40,7 @@ steps:
         from_secret: docker_username
       password:
         from_secret: docker_password
-      repo: ord.vultrcr.com/auroradev/php-fpm-laravel
+      repo: ord.vultrcr.com/auroradev/tyler/php-fpm-laravel
       registry: ord.vultrcr.com
       tags:
         - php8
@@ -55,7 +55,7 @@ steps:
       password:
         from_secret: docker_password
       dockerfile: Dockerfile.caddy
-      repo: ord.vultrcr.com/auroradev/php-fpm-laravel
+      repo: ord.vultrcr.com/auroradev/tyler/php-fpm-laravel
       registry: ord.vultrcr.com
       tags:
         - php8.1-caddy
@@ -71,8 +71,8 @@ steps:
       password:
         from_secret: docker_password
       dockerfile: Dockerfile.caddy
-      repo: registry.meow.tf/tyler/php-fpm-laravel
-      registry: registry.meow.tf
+      repo: ord.vultrcr.com/auroradev/tyler/php-fpm-laravel
+      registry: ord.vultrcr.com
       tags:
         - php8.2-caddy
     depends_on:
@@ -87,7 +87,7 @@ steps:
       password:
         from_secret: docker_password
       dockerfile: Dockerfile.caddy
-      repo: ord.vultrcr.com/auroradev/php-fpm-laravel
+      repo: ord.vultrcr.com/auroradev/tyler/php-fpm-laravel
       registry: ord.vultrcr.com
       tags:
         - php8-caddy
