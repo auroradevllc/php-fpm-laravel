@@ -1,5 +1,4 @@
 ARG PHP_VERSION=8.1
-ARG PHP_REDIS_VERSION=5.3.4
 
 FROM php:${PHP_VERSION}-fpm-alpine
 
@@ -11,9 +10,8 @@ RUN apk add --no-cache libpng libpng-dev libjpeg-turbo-dev libwebp-dev zlib-dev 
 		&& docker-php-ext-configure pcntl --enable-pcntl \
         && docker-php-ext-install gd pcntl
 
-ENV PHP_REDIS_VERSION=${PHP_REDIS_VERSION}
 RUN apk add --no-cache autoconf gcc g++ make linux-headers \
-    && pecl install "redis-$PHP_REDIS_VERSION" \
+    && pecl install redis-6.1.0 \
     && docker-php-ext-enable redis \
     && apk del autoconf gcc g++ make
 

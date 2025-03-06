@@ -16,16 +16,12 @@ jobs:
         php_version: [8.1, 8.2, 8.3, 8.4]
         include:
           - php_version: 8.4
-            php_redis_version: 6.1.0
             tags: "php8.4"
           - php_version: 8.3
-            php_redis_version: 6.1.0
             tags: "php8.3"
           - php_version: 8.2
-            php_redis_version: 5.3.7
             tags: "php8.2"
           - php_version: 8.1
-            php_redis_version: 5.3.7
             tags: "php8.1"
     steps:
       - name: Checkout Repository
@@ -44,7 +40,6 @@ jobs:
           context: .
           build-args: |
             PHP_VERSION=${{ matrix.php_version }}
-            PHP_REDIS_VERSION=${{ matrix.php_redis_version }}
           push: true
           tags: ghcr.io/auroradevllc/php-fpm-laravel:${{ matrix.tags }}
 
