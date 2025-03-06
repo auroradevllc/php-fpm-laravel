@@ -46,7 +46,7 @@ jobs:
             PHP_VERSION=${{ matrix.php_version }}
             PHP_REDIS_VERSION=${{ matrix.php_redis_version }}
           push: true
-          tags: ${{ join(',', fromJSON('["ghcr.io/auroradevllc/php-fpm-laravel:" + tag for tag in matrix.tags]')) }}
+          tags: ${{ join(',', fromJSON(format('[{0}]', join(',', matrix.tags))).* | map(format('ghcr.io/auroradevllc/php-fpm-laravel:{0}', .)) ) }}
 
   build-caddy:
     permissions:
@@ -83,5 +83,4 @@ jobs:
           file: Dockerfile.caddy
           build-args: PHP_VERSION=${{ matrix.php_version }}
           push: true
-          tags: ${{ join(',', fromJSON('["ghcr.io/auroradevllc/php-fpm-laravel:" + tag for tag in matrix.tags]')) }}
-
+          tags: ${{ join(',', fromJSON(format('[{0}]', join(',', matrix.tags))).* | map(format('ghcr.io/auroradevllc/php-fpm-laravel:{0}', .)) ) }}
