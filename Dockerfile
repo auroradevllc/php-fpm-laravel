@@ -19,7 +19,8 @@ RUN apk add --no-cache \
     libxpm-dev \
     oniguruma-dev \
     libxml2-dev  \
-    postgresql-dev
+    postgresql-dev \
+    linux-headers
 
 RUN docker-php-ext-install zip bcmath pdo_mysql pdo_pgsql mysqli mbstring soap sockets \
         && docker-php-ext-configure gd \
